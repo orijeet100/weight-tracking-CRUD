@@ -176,8 +176,9 @@ class _DisplayScreenState extends State<DisplayScreen> {
                     final data=file.data() as Map;
                     final name=data['name'];
                     final weight=data['weight'];
+                    final time=data['time'];
                     final id=file.id;
-                    final entry=WeightEntries(name: name,weight: weight,id: id);
+                    final entry=WeightEntries(name: name,weight: weight,id: id,time: time,);
                     entries.add(entry);
                   }
                   return Column(

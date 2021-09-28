@@ -2,21 +2,24 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:troovi_app/Screens/editing_details_screen.dart';
 import '../constants.dart';
+import 'package:intl/intl.dart';
 
 class WeightEntries extends StatelessWidget {
-  WeightEntries({Key? key, required this.name, required this.weight, required this.id}) : super(key: key);
+  WeightEntries({Key? key, required this.name, required this.weight, required this.id,required this.time}) : super(key: key);
   final String name;
   final String weight;
   final String id;
-
+  final Timestamp time;
   final firestore=FirebaseFirestore.instance;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {//DateTime
+    var date = time.toDate();
+    var dateValue=DateFormat('hh:mm a  dd-MM-yyy').format(date);
     return Padding(
       padding:const EdgeInsetsDirectional.fromSTEB(20, 10, 20, 20),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.18,
+        height: MediaQuery.of(context).size.height * 0.22,
         decoration: BoxDecoration(
           color: const Color(0xFF21192E),
           borderRadius: BorderRadius.circular(30),
@@ -33,7 +36,7 @@ class WeightEntries extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20, 10, 0, 10),
+              padding: const EdgeInsetsDirectional.fromSTEB(20, 10, 0, 15),
               child: Text(
                 'Weight: $weight KG',
                 textAlign: TextAlign.start,
@@ -66,7 +69,17 @@ class WeightEntries extends StatelessWidget {
                   child: const Text('Delete'),
                 ),
               ],
-            )
+            ),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(20, 15, 0, 0),
+                child: Text(
+                  'Time: $dateValue',
+                  textAlign: TextAlign.start,
+                  style: kWeightEntriesStyle.copyWith(fontSize: 15,color: Colors.red),
+                ),
+              ),
+            ),
           ],
         ),
       ),
