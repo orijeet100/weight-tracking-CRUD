@@ -5,6 +5,7 @@ import '../constants.dart';
 import 'package:intl/intl.dart';
 
 class WeightEntries extends StatelessWidget {
+
   WeightEntries({Key? key, required this.name, required this.weight, required this.id,required this.time}) : super(key: key);
   final String name;
   final String weight;
@@ -64,7 +65,6 @@ class WeightEntries extends StatelessWidget {
                   color: Colors.white,
                   onPressed: () async{
                     await firestore.collection('details').doc(id).delete();
-                    snackBar(context, 'Successfully Deleted');
                   },
                   child: const Text('Delete'),
                 ),

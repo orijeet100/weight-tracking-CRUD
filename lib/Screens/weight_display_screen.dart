@@ -24,6 +24,8 @@ class _DisplayScreenState extends State<DisplayScreen> {
 
   @override
   void initState() {
+    name='';
+    weight='';
     userName=widget.currentUser!;
     super.initState();
   }
@@ -32,13 +34,23 @@ class _DisplayScreenState extends State<DisplayScreen> {
   {
     try
     {
-      await _firestore.collection("details").add(
-          {
-            'name':name,
-            'weight':weight,
-            'time':Timestamp.now()
-          }
-      );
+      if(name!='' && weight!='')
+        {
+          await _firestore.collection("details").add(
+              {
+                'name':name,
+                'weight':weight,
+                'time':Timestamp.now()
+              }
+          );
+          snackBar(context, 'New Entry Added');
+        }
+      else
+        {
+          throw('Enter Correct Value');
+        }
+      name='';
+      weight='';
     }
     catch(error)
     {

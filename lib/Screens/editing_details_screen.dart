@@ -24,6 +24,7 @@ class _EditingScreenState extends State<EditingScreen> {
     weight=widget.weight;
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
 
