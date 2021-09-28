@@ -49,7 +49,7 @@ class WeightEntries extends StatelessWidget {
                     showModalBottomSheet(
                         context: context, builder: (context) =>Container(
                         decoration: const BoxDecoration(
-                          color: Colors.purple,
+                          color: Color(0xFF021422),
                           borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight:Radius.circular(30)),
                         ),
                         child:EditingScreen(name: name, weight: weight, id: id)
