@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:troovi_app/Components/EntryWidget.dart';
+import 'package:troovi_app/Components/entry_widget.dart';
 import '../constants.dart';
 
 

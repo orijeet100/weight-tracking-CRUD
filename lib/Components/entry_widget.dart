@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:troovi_app/Screens/editing_details_screen.dart';
-
 import '../constants.dart';
 
 class WeightEntries extends StatelessWidget {
